@@ -7,7 +7,20 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
-page = Nokogiri::HTML(open("http://alpha.wallhaven.cc/random"))
+START_LINK = "http://alpha.wallhaven.cc/random"
 
-image_links = page.css("a").select{|link| link['class'] == "preview"}
-image_links.each{|link| puts link['href'] }
+thumbnail_page = Nokogiri::HTML(open(START_LINK))
+page_links = thumbnail_page.css("a").select{|link| link['class'] == "preview"}
+page_links.each do |link|
+
+  href_page_link = link["href"]
+  # p "PAGE_LINK:" +  href_page_link
+
+  image_page = Nokogiri::HTML(open(href_page_link))
+  # p "PAGE DOC: " + image_page
+
+
+  image_link = image_page.css("img#wallpaper").attribute("src").value
+  p image_link
+
+end
