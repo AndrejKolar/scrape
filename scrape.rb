@@ -11,14 +11,19 @@ require 'uri'
 
 START_LINK = "http://alpha.wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1440&sorting=random&order=desc"
 
+def percentage(index, total)
+  rez = (index.to_f / total.to_f * 100).round(0).to_s + "%"
+  rez
+end
+
 def download_images_from_array(images)
     index = 1
     images.each do |image|
-        print "\rDownloading images #{index} / #{images.count}"
+        print "\rDownloading #{percentage(index, images.count)}"
         download_image(image)
         index = index.next
     end
-    print "\rScraping image links ...done\n"
+    print "\rDownloading  - DONE\n"
 end
 
 def download_image(image_link)
@@ -34,13 +39,13 @@ def create_full_link(image_link)
 end
 
 def clear_images_folder
-    print "Deleting old images"
+    print "Deleting"
     Dir.foreach("./images/") do |file|
         next if file.start_with?('.')
         filePath = File.join("./images/", file)
         File.delete(filePath)
     end
-    print " ...done\n"
+    print " - DONE\n"
 end
 
 def get_link_array
@@ -56,10 +61,10 @@ def get_link_array
         image_link = image_page.css("img#wallpaper").attribute("src").value
         image_link = create_full_link(image_link)
         links.push(image_link)
-        print "\rScraping image links #{index} / #{page_links.count}"
+        print "\rScraping #{percentage(index, page_links.count)}"
         index = index.next
     end
-    print "\rScraping image links ...done\n"
+    print "\rScraping - DONE\n"
     links
 end
 
