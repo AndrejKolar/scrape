@@ -18,7 +18,7 @@ def download_images_from_array(images)
         download_image(image)
         index = index.next
     end
-    print "\rScraping image links #{images.count} / #{images.count} ...done\n"
+    print "\rScraping image links ...done\n"
 end
 
 def download_image(image_link)
@@ -59,7 +59,7 @@ def get_link_array
         print "\rScraping image links #{index} / #{page_links.count}"
         index = index.next
     end
-    print "\rScraping image links #{page_links.count} / #{page_links.count} ...done\n"
+    print "\rScraping image links ...done\n"
     links
 end
 
