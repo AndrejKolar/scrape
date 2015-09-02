@@ -11,6 +11,14 @@ require 'mechanize'
 
 START_LINK = "http://alpha.wallhaven.cc/random"
 
+def downaload_images_from_array(images)
+  index = 0
+  images.each do |image|
+  download_image(image, index)
+  index.next
+  end
+end
+
 def download_image(image_link, index)
   agent = Mechanize.new
   agent.get(image_link).save "images/pic" + index.to_s + ".jpg"
@@ -43,7 +51,6 @@ def get_link_array
   main_page = Nokogiri::HTML(open(START_LINK))
   page_links = main_page.css("a").select{|link| link['class'] == "preview"}
 
-  index = 0
   page_links.each do |thumb_link|
     href_page_link = thumb_link["href"]
     image_page = Nokogiri::HTML(open(href_page_link))
@@ -52,13 +59,12 @@ def get_link_array
     image_link = create_full_link(image_link)
     links.push(image_link)
 
-    index = index.next
   end
 end
-
 
 #main
 
 clear_images_folder
 links = get_link_array
+downaload_images_from_array(links)
 
