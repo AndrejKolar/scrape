@@ -6,11 +6,18 @@ require "bundler/setup"
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
-
 require 'mechanize'
 require 'uri'
 
-START_LINK = "http://alpha.wallhaven.cc/random"
+START_LINK = "http://alpha.wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1440&sorting=random&order=desc"
+
+def desktops
+  system_events.desktops
+end
+
+def set_desktop
+  desktops.picture.set(wallpaper_path)
+end
 
 def download_images_from_array(images)
     images.each do |image|
