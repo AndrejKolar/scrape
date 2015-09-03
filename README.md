@@ -17,7 +17,12 @@ Run in the app folder
 ```
 
 ## configuration
-
+In `scrape.rb`
+```ruby
+START_LINK = "http://alpha.wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1440&sorting=random&order=desc"
+IMAGE_FOLDER = "./images/"
+```
+Starting link contains params for the wallpaper filter like categories, purity, resolutions, sorting and order. Image folder where images are store can be changed here.
 
 ## run
 Enter
