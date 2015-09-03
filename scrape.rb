@@ -10,6 +10,7 @@ require 'mechanize'
 require 'uri'
 
 START_LINK = "http://alpha.wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1440&sorting=random&order=desc"
+IMAGE_FOLDER = "./images/"
 
 # Print
 
@@ -45,7 +46,7 @@ end
 def download_image(image_link)
     name = URI(image_link).path.split('/').last
     agent = Mechanize.new
-    agent.get(image_link).save "images/" + name
+    agent.get(image_link).save IMAGE_FOLDER + name
 end
 
 def create_full_link(image_link)
@@ -56,9 +57,9 @@ end
 
 def clear_images_folder
     print "Deleting"
-    Dir.foreach("./images/") do |file|
+    Dir.foreach(IMAGE_FOLDER) do |file|
         next if file.start_with?('.')
-        filePath = File.join("./images/", file)
+        filePath = File.join(IMAGE_FOLDER, file)
         File.delete(filePath)
     end
     print " - DONE\n"
