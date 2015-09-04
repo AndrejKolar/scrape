@@ -33,13 +33,13 @@ Enter
 ## automate
 If you are using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) an alias can be created to run the app quickly
 
-Add to .oh-my-zsh/custom/plugins/username.plugin.zsh
+Add to `.oh-my-zsh/custom/plugins/username.plugin.zsh`
 ```
 alias scrape="cd /Users/andrejkolar/Projects/scrape/; ./scrape.rb"
 alias sync="cd /Users/andrejkolar/Projects/sync/; ./app.rb"
 ```
 
-To run
+To run in any shell
 ```bash
  scrape
 ```
