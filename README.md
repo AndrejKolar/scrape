@@ -30,6 +30,20 @@ Enter
  ./scrape.rb
 ```
 
+## automate
+If you are using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) an alias can be created to run the app quickly
+
+Add to .oh-my-zsh/custom/plugins/username.plugin.zsh
+```
+alias scrape="cd /Users/andrejkolar/Projects/scrape/; ./scrape.rb"
+alias sync="cd /Users/andrejkolar/Projects/sync/; ./app.rb"
+```
+
+To run
+```bash
+ scrape
+```
+
 ## gems
 [nokogiri](https://github.com/skorks/escort) gem is used to scrape image URLs from wallhaven.
 [mechanize](https://github.com/JEG2/highline) gem is to download images from URLs.
