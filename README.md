@@ -39,7 +39,7 @@ alias scrape="cd /Users/andrejkolar/Projects/scrape/; ./scrape.rb"
 alias sync="cd /Users/andrejkolar/Projects/sync/; ./app.rb"
 ```
 
-To run in any shell
+To run, in any shell
 ```bash
  scrape
 ```
