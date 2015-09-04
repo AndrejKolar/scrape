@@ -36,7 +36,6 @@ If you are using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) an alias
 Add to `.oh-my-zsh/custom/plugins/username.plugin.zsh`
 ```
 alias scrape="cd /Users/andrejkolar/Projects/scrape/; ./scrape.rb"
-alias sync="cd /Users/andrejkolar/Projects/sync/; ./app.rb"
 ```
 
 To run, in any shell
