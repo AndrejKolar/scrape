@@ -3,6 +3,8 @@ Download images from [wallhaven.cc](http://alpha.wallhaven.cc)
 
 Command line app that downloads random wallpapers in a specified size from wallhaven. App scrapes the site for the link, deletes old files and downloads new ones in the images folder. That folder can be used as a source for desktop backgrounds on OSX.
 
+![image](https://cloud.githubusercontent.com/assets/1213228/9685496/016060a8-531f-11e5-9a13-3effb5f27d45.png)
+
 ## installation
 App uses Bundler to handle dependancies.
 
@@ -30,6 +32,20 @@ Enter
  ./scrape.rb
 ```
 
+## automate
+If you are using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) an alias can be created to run the app quickly
+
+Add to `.oh-my-zsh/custom/plugins/username.plugin.zsh`
+```
+alias scrape="cd /Users/andrejkolar/Projects/scrape/; ./scrape.rb"
+```
+
+To run, in any shell
+```bash
+ scrape
+```
+
 ## gems
 [nokogiri](https://github.com/skorks/escort) gem is used to scrape image URLs from wallhaven.
+
 [mechanize](https://github.com/JEG2/highline) gem is to download images from URLs.
