@@ -9,7 +9,7 @@ require 'open-uri'
 require 'mechanize'
 require 'uri'
 
-START_LINK = "http://alpha.wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1440&sorting=random&order=desc"
+START_LINK = "http://alpha.wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1600&sorting=random&order=desc"
 IMAGE_FOLDER = "./images/"
 
 # Print
