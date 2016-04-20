@@ -48,4 +48,6 @@ To run, in any shell
 ## gems
 [nokogiri](https://github.com/skorks/escort) gem is used to scrape image URLs from wallhaven.
 
-[mechanize](https://github.com/JEG2/highline) gem is to download images from URLs.
+[mechanize](https://github.com/JEG2/highline) gem is used to download images from URLs.
+
+[open_uri_redirections](https://github.com/open-uri-redirections/open_uri_redirections) gem is to fix http => https redirections.

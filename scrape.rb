@@ -6,6 +6,7 @@ require "bundler/setup"
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require 'open_uri_redirections'
 require 'mechanize'
 require 'uri'
 
@@ -71,13 +72,13 @@ end
 def get_link_array
     links = Array.new
 
-    main_page = Nokogiri::HTML(open(START_LINK))
+    main_page = Nokogiri::HTML(open(START_LINK, :allow_redirections => :safe))
     page_links = main_page.css("a").select{|link| link['class'] == "preview"}
 
     index = 1
     page_links.each do |thumb_link|
         href_page_link = thumb_link["href"]
-        image_page = Nokogiri::HTML(open(href_page_link))
+        image_page = Nokogiri::HTML(open(href_page_link, :allow_redirections => :safe))
         image_link = image_page.css("img#wallpaper").attribute("src").value
         image_link = create_full_link(image_link)
         links.push(image_link)
