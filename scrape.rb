@@ -10,7 +10,7 @@ require 'open_uri_redirections'
 require 'mechanize'
 require 'uri'
 
-START_LINK = "http://alpha.wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1600&sorting=random&order=desc"
+START_LINK = "https://alpha.wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1440&sorting=random&order=desc"
 IMAGE_FOLDER = "./images/"
 
 # Print
@@ -52,7 +52,7 @@ end
 
 def create_full_link(image_link)
     image_link.slice!(0..1)
-    image_link = "http://" + image_link
+    image_link = "https://" + image_link
     image_link
 end
 
