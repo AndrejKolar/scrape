@@ -51,12 +51,6 @@ def download_image(image_link)
     agent.get(image_link).save IMAGE_FOLDER + name
 end
 
-def create_full_link(image_link)
-    image_link.slice!(0..1)
-    image_link = "https://" + image_link
-    image_link
-end
-
 def clear_images_folder
     print "Deleting"
     Dir.foreach(IMAGE_FOLDER) do |file|
@@ -81,10 +75,6 @@ def get_link_array
         href_page_link = thumb_link["href"]
         image_page = Nokogiri::HTML(open(href_page_link, :allow_redirections => :safe))
         image_link = image_page.css("img#wallpaper").attribute("src").value
-
-        puts (image_link)
-
-        # image_link = create_full_link(image_link)
         links.push(image_link)
         print_progres("Scraping", index, page_links.count)
         index = index.next
