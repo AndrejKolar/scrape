@@ -11,7 +11,7 @@ require 'mechanize'
 require 'uri'
 
 
-START_LINK = "https://alpha.wallhaven.cc/search?q=&categories=111&purity=100&atleast=2560x1440&topRange=1M&sorting=toplist&order=desc"
+START_LINK = "https://wallhaven.cc/search?q=&categories=111&purity=100&atleast=2560x1440&topRange=1M&sorting=toplist&order=desc"
 IMAGE_FOLDER = "./images/"
 
 # Print
@@ -81,7 +81,10 @@ def get_link_array
         href_page_link = thumb_link["href"]
         image_page = Nokogiri::HTML(open(href_page_link, :allow_redirections => :safe))
         image_link = image_page.css("img#wallpaper").attribute("src").value
-        image_link = create_full_link(image_link)
+
+        puts (image_link)
+
+        # image_link = create_full_link(image_link)
         links.push(image_link)
         print_progres("Scraping", index, page_links.count)
         index = index.next
