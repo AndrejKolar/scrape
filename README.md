@@ -43,9 +43,9 @@ Enter
 
 ## automate
 
-If you are using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) an alias can be created to run the app quickly
+An alias can be created to run the app quickly
 
-Add to `.oh-my-zsh/custom/plugins/username.plugin.zsh`
+Add to `.zshrc` or other shell equvalent
 
 ```
 alias scrape="(cd /Users/andrejkolar/Projects/scrape/; ./scrape.rb)"
