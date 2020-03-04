@@ -78,6 +78,7 @@ def get_link_array
         links.push(image_link)
         print_progres("Scraping", index, page_links.count)
         index = index.next
+        sleep(1)
     end
     links
 end
