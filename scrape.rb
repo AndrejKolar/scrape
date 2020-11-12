@@ -11,7 +11,7 @@ require 'mechanize'
 require 'uri'
 
 
-START_LINK = "https://wallhaven.cc/search?q=&categories=111&purity=100&atleast=2560x1440&topRange=1M&sorting=toplist&order=desc"
+START_LINK = "https://wallhaven.cc/search?categories=111&purity=100&resolutions=2560x1440%2C3840x2160&topRange=1M&sorting=toplist&order=desc"
 IMAGE_FOLDER = "./images/"
 
 # Print
